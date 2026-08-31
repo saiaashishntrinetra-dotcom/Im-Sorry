@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heyyy Wifeyyy 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,105,180,.18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(180,80,255,.18), transparent 30%),
+        linear-gradient(135deg,#09050f,#1b0b22,#100716);
+    color: white;
+    overflow: hidden;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -60px;
+    opacity: 0;
+    animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: .7;
+    }
+    85% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: min(680px,100%);
+    padding: clamp(35px,7vw,65px) clamp(22px,6vw,55px);
+    text-align: center;
+    border-radius: 32px;
+    background: rgba(255,255,255,.075);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.12);
+    animation: cardAppear 1s ease;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.top {
+    font-size: 12px;
+    letter-spacing: 4px;
+    opacity: .55;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px,9vw,70px);
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.pink {
+    color: #ff9dcc;
+    text-shadow: 0 0 25px rgba(255,130,190,.35);
+}
+
+.message {
+    font-size: clamp(18px,3.5vw,22px);
+    line-height: 1.8;
+    color: rgba(255,255,255,.9);
+}
+
+.question {
+    margin-top: 25px;
+    font-size: clamp(21px,4vw,28px);
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #ffafd0;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(255,120,180,.25);
+}
+
+.divider {
+    width: 75px;
+    height: 2px;
+    margin: 32px auto;
+    border-radius: 10px;
+    background: rgba(255,255,255,.25);
+}
+
+.sorry {
+    font-size: clamp(18px,3.5vw,22px);
+    line-height: 1.8;
+    color: rgba(255,255,255,.9);
+}
+
+.here {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,150,200,.07);
+    border: 1px solid rgba(255,170,210,.12);
+    font-size: clamp(20px,4vw,27px);
+    line-height: 1.6;
+}
+
+.bottom {
+    margin-top: 28px;
+    font-size: clamp(17px,3.5vw,21px);
+    line-height: 1.7;
+    color: rgba(255,255,255,.78);
+}
+
+.big-heart {
+    display: inline-block;
+    margin-top: 28px;
+    font-size: 48px;
+    animation: heartbeat 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(255,100,180,.35));
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.13);
+    }
+}
+
+@media (max-width:500px) {
+    body {
+        padding: 14px;
+    }
+
+    .card {
+        border-radius: 26px;
+        padding: 35px 21px;
+    }
+
+    .top {
+        letter-spacing: 2.5px;
+    }
+
+    .divider {
+        margin: 27px auto;
+    }
+}
+
+@media (max-width:350px) {
+    .card {
+        padding: 30px 17px;
+    }
+
+    .message,
+    .sorry {
+        font-size: 16px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .here {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+
+    <div class="top">
+        A LITTLE MESSAGE FOR YOU ✨
+    </div>
+
+    <h1>
+        Heyyy
+        <span class="pink">Wifeyyy</span> 💗
+    </h1>
+
+    <p class="message">
+        Babeeee…
+        <br>
+        <span class="highlight">What happened? 🥺</span>
+    </p>
+
+    <p class="question">
+        Are you angry with me?
+        <br>
+        Did I do something? 😭
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="sorry">
+        If I did something,
+        or said something that hurt you…
+        <br><br>
+        <span class="highlight">
+            I'm really sorry, babeee. 🥺💗
+        </span>
+        <br><br>
+        I genuinely didn't mean to upset you.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="here">
+        I don't know what's wrong…
+        <br><br>
+        But I'm here, okay? 🥺🫶🏻
+    </div>
+
+    <p class="bottom">
+        Your idiot is right here. 😭💗
+        <br><br>
+        I just want my
+        <span class="highlight">Wifeyyy</span>
+        to be okay. ✨
+    </p>
+
+    <div class="big-heart">
+        💗
+    </div>
+
+</div>
+
+<script>
+const container = document.getElementById("hearts");
+
+const symbols = ["💗","💕","💖","💞","✨","♡","🌸"];
+
+for (let i = 0; i < 28; i++) {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (7 + Math.random() * 9) + "s";
+    heart.style.animationDelay = Math.random() * 10 + "s";
+
+    container.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
