@@ -3,88 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heyyy Wifeyyy 💗</title>
+<meta name="theme-color" content="#0b0612">
+<title>For My Wifeyyy 💗</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --pink: #ff9bc7;
+    --soft-pink: #ffd0e3;
+    --purple: #b58cff;
+    --white: #fffaff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 91, 164, .16), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(161, 101, 255, .14), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255, 75, 160, .12), transparent 35%),
+        #08050d;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(255,255,255,.025) 45%,
+            transparent 70%
+        );
+    animation: shine 9s linear infinite;
+    z-index: 0;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,105,180,.18), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(180,80,255,.18), transparent 30%),
-        linear-gradient(135deg,#09050f,#1b0b22,#100716);
-    color: white;
-    overflow: hidden;
-}
-
-.hearts {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.heart {
-    position: absolute;
-    bottom: -60px;
-    opacity: 0;
-    animation: floatHeart linear infinite;
-}
-
-@keyframes floatHeart {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: .7;
-    }
-
-    85% {
-        opacity: .5;
-    }
-
-    100% {
-        transform: translateY(-115vh) rotate(360deg);
-        opacity: 0;
-    }
+    padding: 35px 18px;
+    position: relative;
+    z-index: 2;
 }
 
 .card {
+    width: min(760px, 100%);
     position: relative;
-    z-index: 2;
-    width: min(680px, 100%);
-    padding: clamp(35px, 7vw, 65px) clamp(22px, 6vw, 55px);
+    padding: clamp(42px, 7vw, 75px) clamp(25px, 7vw, 70px);
     text-align: center;
-    border-radius: 32px;
-    background: rgba(255,255,255,.075);
-    border: 1px solid rgba(255,255,255,.15);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.105),
+        rgba(255,255,255,.035)
+    );
+
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 38px;
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
     box-shadow:
-        0 30px 100px rgba(0,0,0,.55),
+        0 40px 120px rgba(0,0,0,.55),
         inset 0 1px 0 rgba(255,255,255,.12);
-    animation: cardAppear 1s ease;
+
+    opacity: 0;
+    transform: translateY(35px) scale(.97);
+    animation: cardIn 1.2s cubic-bezier(.2,.8,.2,1) .2s forwards;
 }
 
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(.96);
-    }
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,166,207,.45),
+        transparent 35%,
+        transparent 65%,
+        rgba(180,140,255,.3)
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
 
+@keyframes cardIn {
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -92,128 +139,274 @@ body {
 }
 
 .top {
-    font-size: 12px;
-    letter-spacing: 4px;
-    opacity: .55;
-    margin-bottom: 20px;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp .8s ease .8s forwards;
 }
 
 h1 {
-    font-size: clamp(40px, 9vw, 70px);
-    line-height: 1.05;
-    margin-bottom: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 10vw, 92px);
+    line-height: .95;
+    font-weight: 600;
+    margin-bottom: 32px;
+    letter-spacing: -2px;
+
+    opacity: 0;
+    animation: fadeUp .9s ease 1s forwards;
 }
 
 .pink {
-    color: #ff9dcc;
-    text-shadow: 0 0 25px rgba(255,130,190,.35);
+    display: inline-block;
+    color: var(--pink);
+    text-shadow:
+        0 0 20px rgba(255,132,190,.35),
+        0 0 50px rgba(255,100,180,.12);
+    animation: gentleGlow 3s ease-in-out infinite;
+}
+
+@keyframes gentleGlow {
+    0%,100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.18);
+    }
 }
 
 .message {
-    font-size: clamp(18px, 3.5vw, 22px);
-    line-height: 1.8;
-    color: rgba(255,255,255,.9);
+    max-width: 600px;
+    margin: auto;
+    font-size: clamp(17px, 3vw, 21px);
+    line-height: 1.9;
+    font-weight: 300;
+    color: rgba(255,255,255,.84);
+
+    opacity: 0;
+    animation: fadeUp .9s ease 1.25s forwards;
 }
 
 .question {
-    margin-top: 25px;
-    font-size: clamp(21px, 4vw, 28px);
-    line-height: 1.6;
+    margin-top: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.35;
+    color: white;
+
+    opacity: 0;
+    animation: fadeUp .9s ease 1.45s forwards;
 }
 
 .highlight {
-    color: #ffafd0;
-    font-weight: 600;
-    text-shadow: 0 0 15px rgba(255,120,180,.25);
+    color: var(--soft-pink);
+    text-shadow: 0 0 20px rgba(255,160,205,.18);
 }
 
 .divider {
-    width: 75px;
-    height: 2px;
-    margin: 32px auto;
-    border-radius: 10px;
-    background: rgba(255,255,255,.25);
+    width: 90px;
+    height: 1px;
+    margin: 35px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,170,210,.65),
+        transparent
+    );
+
+    opacity: 0;
+    animation: expand .8s ease 1.65s forwards;
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 90px;
+        opacity: 1;
+    }
 }
 
 .sorry {
-    font-size: clamp(18px, 3.5vw, 22px);
-    line-height: 1.8;
-    color: rgba(255,255,255,.9);
+    font-size: clamp(17px, 3vw, 21px);
+    line-height: 1.9;
+    color: rgba(255,255,255,.83);
+    font-weight: 300;
+
+    opacity: 0;
+    animation: fadeUp .9s ease 1.8s forwards;
 }
 
 .here {
-    margin-top: 30px;
-    padding: 22px;
-    border-radius: 20px;
-    background: rgba(255,150,200,.07);
-    border: 1px solid rgba(255,170,210,.12);
-    font-size: clamp(20px, 4vw, 27px);
-    line-height: 1.6;
-    color: white;
+    position: relative;
+    margin: 35px auto 0;
+    padding: 28px 20px;
+
+    max-width: 520px;
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,130,190,.11),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255,175,210,.13);
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(27px, 5vw, 38px);
+    line-height: 1.35;
+
+    opacity: 0;
+    transform: scale(.96);
+    animation: softAppear 1s ease 2s forwards;
+}
+
+.here::before,
+.here::after {
+    content: "✦";
+    position: absolute;
+    color: rgba(255,180,215,.6);
+    font-size: 12px;
+}
+
+.here::before {
+    top: 12px;
+    left: 18px;
+}
+
+.here::after {
+    bottom: 12px;
+    right: 18px;
 }
 
 .bottom {
-    margin-top: 28px;
-    font-size: clamp(17px, 3.5vw, 21px);
-    line-height: 1.7;
-    color: rgba(255,255,255,.78);
+    margin-top: 32px;
+    font-size: clamp(15px, 2.8vw, 18px);
+    line-height: 1.8;
+    color: rgba(255,255,255,.58);
+
+    opacity: 0;
+    animation: fadeUp .9s ease 2.25s forwards;
 }
 
 .big-heart {
     display: inline-block;
     margin-top: 28px;
     font-size: 48px;
-    animation: heartbeat 1.8s ease-in-out infinite;
-    filter: drop-shadow(0 0 15px rgba(255,100,180,.35));
+
+    opacity: 0;
+    animation:
+        heartAppear 1s ease 2.5s forwards,
+        heartbeat 2s ease-in-out 3.5s infinite;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,90,170,.45))
+        drop-shadow(0 0 35px rgba(255,90,170,.15));
+}
+
+@keyframes heartAppear {
+    from {
+        opacity: 0;
+        transform: scale(.4);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes heartbeat {
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
-
-    50% {
-        transform: scale(1.13);
+    12% {
+        transform: scale(1.12);
+    }
+    24% {
+        transform: scale(1);
+    }
+    36% {
+        transform: scale(1.08);
+    }
+    48% {
+        transform: scale(1);
     }
 }
 
-@media (max-width: 500px) {
-    body {
-        padding: 14px;
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes softAppear {
+    from {
+        opacity: 0;
+        transform: scale(.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        padding: 18px 12px;
+        align-items: center;
     }
 
     .card {
-        border-radius: 26px;
-        padding: 35px 21px;
-        max-height: 94vh;
-        overflow-y: auto;
+        border-radius: 28px;
+        padding: 42px 22px;
     }
 
     .top {
-        letter-spacing: 2.5px;
+        letter-spacing: 3px;
+        font-size: 9px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
     }
 
     .divider {
-        margin: 27px auto;
-    }
-}
-
-@media (max-width: 350px) {
-    .card {
-        padding: 30px 17px;
-    }
-
-    .message,
-    .sorry {
-        font-size: 16px;
-    }
-
-    .question {
-        font-size: 20px;
+        margin: 28px auto;
     }
 
     .here {
-        font-size: 19px;
+        padding: 24px 15px;
+    }
+}
+
+@media (max-height: 700px) and (min-width: 601px) {
+    .page {
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
     }
 }
 </style>
@@ -221,12 +414,14 @@ h1 {
 
 <body>
 
-<div class="hearts" id="hearts"></div>
+<canvas id="particles"></canvas>
+
+<div class="page">
 
 <div class="card">
 
     <div class="top">
-        A LITTLE MESSAGE FOR YOU ✨
+        A LITTLE MESSAGE FOR YOU ✦
     </div>
 
     <h1>
@@ -252,10 +447,13 @@ h1 {
         If I did something,
         or said something that hurt you…
         <br><br>
+
         <span class="highlight">
             I'm really sorry, babeee. 🥺💗
         </span>
+
         <br><br>
+
         I genuinely didn't mean to upset you.
     </p>
 
@@ -271,7 +469,7 @@ h1 {
 
     <p class="bottom">
         Your idiot is right here. 😭💗
-        <br><br>
+        <br>
         Just wanted you to know that.
     </p>
 
@@ -281,40 +479,100 @@ h1 {
 
 </div>
 
+</div>
+
 <script>
-const container = document.getElementById("hearts");
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 
-const symbols = [
-    "💗",
-    "💕",
-    "💖",
-    "💞",
-    "✨",
-    "♡",
-    "🌸"
-];
+let particles = [];
+let width;
+let height;
 
-for (let i = 0; i < 28; i++) {
-    const heart = document.createElement("div");
+function resize() {
+    width = canvas.width = window.innerWidth * devicePixelRatio;
+    height = canvas.height = window.innerHeight * devicePixelRatio;
 
-    heart.className = "heart";
-    heart.textContent =
-        symbols[Math.floor(Math.random() * symbols.length)];
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
 
-    heart.style.left =
-        Math.random() * 100 + "%";
-
-    heart.style.fontSize =
-        (12 + Math.random() * 20) + "px";
-
-    heart.style.animationDuration =
-        (7 + Math.random() * 9) + "s";
-
-    heart.style.animationDelay =
-        Math.random() * 10 + "s";
-
-    container.appendChild(heart);
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
 }
+
+function createParticles() {
+    particles = [];
+
+    const count = Math.min(
+        90,
+        Math.floor(window.innerWidth / 12)
+    );
+
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            size: Math.random() * 2 + .5,
+            speed: Math.random() * .35 + .08,
+            opacity: Math.random() * .55 + .1,
+            drift: Math.random() * .3 - .15
+        });
+    }
+}
+
+function animate() {
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    particles.forEach(p => {
+        p.y -= p.speed;
+        p.x += p.drift;
+
+        if (p.y < -10) {
+            p.y = window.innerHeight + 10;
+            p.x = Math.random() * window.innerWidth;
+        }
+
+        if (p.x < -10) p.x = window.innerWidth + 10;
+        if (p.x > window.innerWidth + 10) p.x = -10;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(255,180,215,${p.opacity})`;
+
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener("resize", () => {
+    resize();
+    createParticles();
+});
+
+resize();
+createParticles();
+animate();
 </script>
 
 </body>
